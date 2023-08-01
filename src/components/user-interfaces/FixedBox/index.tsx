@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
-export default function Box({
+export default function FixedBox({
     children,
     display,
     width,
@@ -12,14 +12,22 @@ export default function Box({
     margin,
     overflow,
     backgroundColor,
-    color,
-    cursor,
-}: BoxProps) {
+    top,
+    right,
+    bottom,
+    left,
+    zIndex,
+}: MoveableBoxProps) {
     return (
         <div css={[
                 {
                     display: display || "block",
-                    position: "relative",
+                    position: "fixed",
+                    top: top || "auto",
+                    right: right || "auto",
+                    bottom: bottom || "auto",
+                    left: left || "auto",
+                    zIndex: zIndex || 1,
                 },
                 width && {
                     width: width,
@@ -43,13 +51,7 @@ export default function Box({
                     overflow: overflow,
                 },
                 backgroundColor && {
-                    backgroundColor: backgroundColor
-                },
-                color && {
-                    color: color,
-                },
-                cursor && {
-                    cursor: cursor,
+                    backgroundColor: backgroundColor,
                 }
             ]}
         >

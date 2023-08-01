@@ -1,7 +1,9 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
-export default function Box({
+import { transform } from "typescript"
+
+export default function AbsoluteBox({
     children,
     display,
     width,
@@ -12,14 +14,24 @@ export default function Box({
     margin,
     overflow,
     backgroundColor,
-    color,
-    cursor,
-}: BoxProps) {
+    top,
+    right,
+    bottom,
+    left,
+    zIndex,
+    transform,
+}: MoveableBoxProps) {
     return (
         <div css={[
                 {
                     display: display || "block",
-                    position: "relative",
+                    position: "absolute",
+                    top: top || "auto",
+                    right: right || "auto",
+                    bottom: bottom || "auto",
+                    left: left || "auto",
+                    transform: transform || "none",
+                    zIndex: zIndex || 1,
                 },
                 width && {
                     width: width,
@@ -43,13 +55,7 @@ export default function Box({
                     overflow: overflow,
                 },
                 backgroundColor && {
-                    backgroundColor: backgroundColor
-                },
-                color && {
-                    color: color,
-                },
-                cursor && {
-                    cursor: cursor,
+                    backgroundColor: backgroundColor,
                 }
             ]}
         >

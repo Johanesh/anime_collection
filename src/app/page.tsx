@@ -2,8 +2,8 @@
 
 export default function Home() {
   return (
-    <main>
+    <div>
       test create website
-    </main>
+    </div>
   )
 }

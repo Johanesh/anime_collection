@@ -2,23 +2,25 @@
 'use client'
 
 import Box from '@/components/user-interfaces/Box';
+import Header from '../Header';
 
 export default function Layout({
     children,
 }: LayoutProps) {
     return (
-        <div
+        <main
             css={{
-                backgroundColor: '#000',
+                backgroundColor: '#eaeaea',
                 color: '#fff',
                 width: '100%',
                 maxWidth: '768px',
                 margin: 'auto',
             }}
         >
+            <Header/>
             <Box height="100vh">
                 {children}
             </Box>
-        </div>
+        </main>
     )
 };

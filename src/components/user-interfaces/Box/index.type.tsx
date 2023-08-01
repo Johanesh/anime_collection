@@ -8,4 +8,7 @@ interface BoxProps {
     padding?: string,
     margin?: string,
     overflow?: string,
+    backgroundColor?: string,
+    color?: string,
+    cursor?: string,
 }
