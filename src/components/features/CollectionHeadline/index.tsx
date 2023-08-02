@@ -44,7 +44,7 @@ export default function CollectionHeadline({
                     }
                 </AbsoluteBox>
             </Box>
-            <Box width="100%" whiteSpace="nowrap" overflow="auto hidden" margin="8px 0">
+            <Box width="100%" margin="8px 0">
                 {children}
             </Box>
         </Box>

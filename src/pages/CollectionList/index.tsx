@@ -9,35 +9,41 @@ export default function CollectionList() {
         <Box width="100%" color="#000">
             <Box padding="0 16px">
                 <CollectionHeadline>
-                    {
-                        [...Array(12)].map((item, index) => (
-                            <Box display="inline-block" width="200px" key={index}>
-                                <AnimeData isCanRemove />
-                            </Box>
-                        ))
-                    }
+                    <Box width="100%" whiteSpace="nowrap" overflow="auto hidden">    
+                        {
+                            [...Array(12)].map((item, index) => (
+                                <Box display="inline-block" width="175px" key={index}>
+                                    <AnimeData isCanRemove />
+                                </Box>
+                            ))
+                        }
+                    </Box>
                 </CollectionHeadline>
                 <CollectionHeadline>
-                    {
-                        [...Array(2)].map((item, index) => (
-                            <Box display="inline-block" width="200px" key={index}>
-                                <AnimeData isCanRemove />
-                            </Box>
-                        ))
-                    }
+                    <Box width="100%" whiteSpace="nowrap" overflow="auto hidden">    
+                        {
+                            [...Array(1)].map((item, index) => (
+                                <Box display="inline-block" width="175px" key={index}>
+                                    <AnimeData isCanRemove />
+                                </Box>
+                            ))
+                        }
+                    </Box>
                 </CollectionHeadline>
                 <CollectionHeadline>
-                    {
-                        [...Array(3)].map((item, index) => (
-                            <Box display="inline-block" width="200px" key={index}>
-                                <AnimeData isCanRemove />
-                            </Box>
-                        ))
-                    }
+                    <Box width="100%" whiteSpace="nowrap" overflow="auto hidden">    
+                        {
+                            [...Array(3)].map((item, index) => (
+                                <Box display="inline-block" width="175px" key={index}>
+                                    <AnimeData isCanRemove />
+                                </Box>
+                            ))
+                        }
+                    </Box>
                 </CollectionHeadline>
                 <CollectionHeadline isCreateNew>
                     <Grid templateCol="auto" justify="center">
-                        <Box width="200px" backgroundColor="#eaeaea" padding="125% 0 0" cursor="pointer">
+                        <Box width="175px" backgroundColor="#eaeaea" padding="125% 0 0" cursor="pointer">
                             <AbsoluteBox top="50%" left="50%" transform="translate(-50%, -50%)" />
                         </Box>
                     </Grid>

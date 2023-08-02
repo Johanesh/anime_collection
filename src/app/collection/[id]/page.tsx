@@ -1,9 +1,9 @@
 'use client'
 
-import CollectionList from "@/pages/CollectionList";
+import CollectionDataDetail from "@/pages/CollectionDetail";
 
 export default function CollectionDetail() {
   return (
-    <CollectionList />
+    <CollectionDataDetail />
   )
 }
