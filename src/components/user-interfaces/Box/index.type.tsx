@@ -14,4 +14,6 @@ export interface BoxProps {
     color?: string,
     cursor?: string,
     textAlign?: Property.TextAlign,
+    zIndex?: number,
+    onClick?: () => void,
 }

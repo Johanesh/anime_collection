@@ -17,9 +17,12 @@ export default function Box({
     color,
     cursor,
     textAlign,
+    zIndex,
+    onClick,
 }: BoxProps) {
     return (
-        <div css={[
+        <div 
+            css={[
                 {
                     display: display || "block",
                     position: "relative",
@@ -56,8 +59,12 @@ export default function Box({
                 },
                 textAlign && {
                     textAlign: textAlign,
-                }
+                },
+                zIndex && {
+                    zIndex: zIndex,
+                },
             ]}
+            onClick={onClick}
         >
             {children}
         </div>

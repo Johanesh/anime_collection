@@ -20,6 +20,7 @@ export default function AbsoluteBox({
     left,
     zIndex,
     transform,
+    transition,
 }: MoveableBoxProps) {
     return (
         <div
@@ -69,6 +70,9 @@ export default function AbsoluteBox({
                 },
                 backgroundColor && {
                     backgroundColor: backgroundColor,
+                },
+                transition && {
+                    transition: transition,
                 }
             ]}
         >

@@ -7,4 +7,5 @@ export interface MoveableBoxProps extends BoxProps {
     left?: string,
     zIndex?: number,
     transform?: string,
+    transition?: string,
 }

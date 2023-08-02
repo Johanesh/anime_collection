@@ -8,5 +8,6 @@ interface InputProps {
     margin?: string,
     type?: string,
     value?: string | number,
-    onChange?: () => void,
+    placeholder?: string,
+    onChange?: (value: string, name?: string) => void,
 }

@@ -11,13 +11,15 @@ export default function Input({
     margin,
     type,
     value,
+    placeholder,
     onChange,
 }: InputProps) {
     return (
         <input
             type={type || "text"}
             value={value}
-            onChange={onChange}
+            placeholder={placeholder}
+            onChange={(e) => onChange ? onChange(e.target.value, e.target.name) : () => {}}
             css={[
                 {
                     display: display || "block",
