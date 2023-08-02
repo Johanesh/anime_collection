@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
+import { MoveableBoxProps } from "../AbsoluteBox/index.type"
+
 export default function FixedBox({
     children,
     display,
@@ -17,17 +19,32 @@ export default function FixedBox({
     bottom,
     left,
     zIndex,
+    transform,
 }: MoveableBoxProps) {
     return (
-        <div css={[
+        <div
+            css={[
                 {
                     display: display || "block",
                     position: "fixed",
-                    top: top || "auto",
-                    right: right || "auto",
-                    bottom: bottom || "auto",
-                    left: left || "auto",
-                    zIndex: zIndex || 1,
+                },
+                top && {
+                    top: top,
+                },
+                right && {
+                    right: right,
+                },
+                bottom && {
+                    bottom: bottom,
+                },
+                left && {
+                    left: left,
+                },
+                transform && {
+                    transform: transform,
+                },
+                zIndex && {
+                    zIndex: zIndex,
                 },
                 width && {
                     width: width,

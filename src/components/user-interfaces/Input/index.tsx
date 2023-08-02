@@ -1,10 +1,7 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
-import { BoxProps } from "./index.type"
-
-export default function Box({
-    children,
+export default function Input({
     display,
     width,
     maxWidth,
@@ -12,17 +9,18 @@ export default function Box({
     border,
     padding,
     margin,
-    overflow,
-    backgroundColor,
-    color,
-    cursor,
-    textAlign,
-}: BoxProps) {
+    type,
+    value,
+    onChange,
+}: InputProps) {
     return (
-        <div css={[
+        <input
+            type={type || "text"}
+            value={value}
+            onChange={onChange}
+            css={[
                 {
                     display: display || "block",
-                    position: "relative",
                 },
                 width && {
                     width: width,
@@ -42,24 +40,7 @@ export default function Box({
                 border && {
                     border: border,
                 },
-                overflow && {
-                    overflow: overflow,
-                },
-                backgroundColor && {
-                    backgroundColor: backgroundColor
-                },
-                color && {
-                    color: color,
-                },
-                cursor && {
-                    cursor: cursor,
-                },
-                textAlign && {
-                    textAlign: textAlign,
-                }
             ]}
-        >
-            {children}
-        </div>
+        />
     )
 };

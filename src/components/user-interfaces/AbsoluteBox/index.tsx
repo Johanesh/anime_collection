@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
-import { transform } from "typescript"
+import { MoveableBoxProps } from "./index.type"
 
 export default function AbsoluteBox({
     children,
@@ -22,16 +22,29 @@ export default function AbsoluteBox({
     transform,
 }: MoveableBoxProps) {
     return (
-        <div css={[
+        <div
+            css={[
                 {
                     display: display || "block",
                     position: "absolute",
-                    top: top || "auto",
-                    right: right || "auto",
-                    bottom: bottom || "auto",
-                    left: left || "auto",
-                    transform: transform || "none",
-                    zIndex: zIndex || 1,
+                },
+                top && {
+                    top: top,
+                },
+                right && {
+                    right: right,
+                },
+                bottom && {
+                    bottom: bottom,
+                },
+                left && {
+                    left: left,
+                },
+                transform && {
+                    transform: transform,
+                },
+                zIndex && {
+                    zIndex: zIndex,
                 },
                 width && {
                     width: width,
