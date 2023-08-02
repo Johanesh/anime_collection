@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
+import { TextProps } from "./index.type"
+
 export default function Text({
     children,
     display,

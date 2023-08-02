@@ -14,6 +14,9 @@ export default function AbsoluteBox({
     margin,
     overflow,
     backgroundColor,
+    backgroundImg,
+    backgroundSize,
+    backgroundRepeat,
     top,
     right,
     bottom,
@@ -70,6 +73,15 @@ export default function AbsoluteBox({
                 },
                 backgroundColor && {
                     backgroundColor: backgroundColor,
+                },
+                backgroundImg && {
+                    backgroundImage: backgroundImg,
+                },
+                backgroundSize && {
+                    backgroundSize: backgroundSize,
+                },
+                backgroundRepeat && {
+                    backgroundRepeat: backgroundRepeat,
                 },
                 transition && {
                     transition: transition,

@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
+import { TextHeadingProps } from "./index.type";
+
 export default function TextHeading({
     as,
     children,
@@ -11,6 +13,9 @@ export default function TextHeading({
     color,
     padding,
     margin,
+    textAlign,
+    overflow,
+    textOverflow,
 }: TextHeadingProps) {
     const style = [
         {
@@ -35,6 +40,15 @@ export default function TextHeading({
         },
         fontSize && {
             fontSize: fontSize,
+        },
+        textAlign && {
+            textAlign: textAlign,
+        },
+        overflow && {
+            overflow: overflow,
+        },
+        textOverflow && {
+            textOverflow: textOverflow
         }
     ];
     

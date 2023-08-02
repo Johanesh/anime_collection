@@ -1,11 +1,10 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
-import { BoxProps } from "./index.type"
+import { GridBoxProps } from "./index.type"
 
-export default function Box({
+export default function Grid({
     children,
-    display,
     width,
     maxWidth,
     height,
@@ -14,21 +13,21 @@ export default function Box({
     margin,
     overflow,
     backgroundColor,
-    backgroundImg,
-    backgroundSize,
-    backgroundRepeat,
     color,
     cursor,
     textAlign,
     zIndex,
-    onClick,
-}: BoxProps) {
+    templateCol,
+    templateRow,
+    justify,
+    align,
+    gap,
+}: GridBoxProps) {
     return (
         <div 
             css={[
                 {
-                    display: display || "block",
-                    position: "relative",
+                    display: "grid",
                 },
                 width && {
                     width: width,
@@ -54,15 +53,6 @@ export default function Box({
                 backgroundColor && {
                     backgroundColor: backgroundColor
                 },
-                backgroundImg && {
-                    backgroundImage: backgroundImg,
-                },
-                backgroundSize && {
-                    backgroundSize: backgroundSize,
-                },
-                backgroundRepeat && {
-                    backgroundRepeat: backgroundRepeat,
-                },
                 color && {
                     color: color,
                 },
@@ -75,8 +65,22 @@ export default function Box({
                 zIndex && {
                     zIndex: zIndex,
                 },
+                templateCol && {
+                    gridTemplateColumns: templateCol,
+                },
+                templateRow && {
+                    gridTemplateRows: templateRow,
+                },
+                justify && {
+                    justifyContent: justify,
+                },
+                align && {
+                    alignContent: align,
+                },
+                gap && {
+                    gap: gap,
+                }
             ]}
-            onClick={onClick}
         >
             {children}
         </div>

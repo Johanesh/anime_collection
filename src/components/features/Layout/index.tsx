@@ -10,7 +10,6 @@ export default function Layout({
     return (
         <main
             css={{
-                backgroundColor: '#eaeaea',
                 color: '#fff',
                 width: '100%',
                 maxWidth: '768px',
@@ -18,7 +17,7 @@ export default function Layout({
             }}
         >
             <Header/>
-            <Box height="100vh">
+            <Box padding="60px 0 16px" height="100vh">
                 {children}
             </Box>
         </main>

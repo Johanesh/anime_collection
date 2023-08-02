@@ -1,4 +1,6 @@
-interface TextHeadingProps extends TextProps {
+import { TextProps } from "../Text/index.type";
+
+export interface TextHeadingProps extends TextProps {
     children: React.ReactNode,
-    as?: string,
+    as?: "h1" | "h2" | "h3",
 }

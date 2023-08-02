@@ -1,9 +1,9 @@
 'use client'
 
-export default function Home() {
+import AnimeList from "@/pages/AnimeList"
+
+export default function Anime() {
   return (
-    <div>
-      test create website
-    </div>
+    <AnimeList/>
   )
 }
