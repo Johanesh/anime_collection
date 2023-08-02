@@ -14,6 +14,7 @@ export default function TextHeading({
     padding,
     margin,
     textAlign,
+    verticalAlign,
     overflow,
     textOverflow,
 }: TextHeadingProps) {
@@ -49,7 +50,10 @@ export default function TextHeading({
         },
         textOverflow && {
             textOverflow: textOverflow
-        }
+        },
+        verticalAlign && {
+            verticalAlign: verticalAlign
+        },
     ];
     
     switch (as) {

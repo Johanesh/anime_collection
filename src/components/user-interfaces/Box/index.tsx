@@ -10,14 +10,18 @@ export default function Box({
     maxWidth,
     height,
     border,
+    borderTop,
     borderBottom,
     padding,
     margin,
     overflow,
+    background,
     backgroundColor,
     backgroundImg,
     backgroundSize,
     backgroundRepeat,
+    backgroundPosition,
+    verticalAlign,
     whiteSpace,
     color,
     cursor,
@@ -50,11 +54,17 @@ export default function Box({
                 border && {
                     border: border,
                 },
+                borderTop && {
+                    borderTop: borderTop,
+                },
                 borderBottom && {
                     borderBottom: borderBottom,
                 },
                 overflow && {
                     overflow: overflow,
+                },
+                background && {
+                    background: background
                 },
                 backgroundColor && {
                     backgroundColor: backgroundColor
@@ -67,6 +77,12 @@ export default function Box({
                 },
                 backgroundRepeat && {
                     backgroundRepeat: backgroundRepeat,
+                },
+                backgroundPosition && {
+                    backgroundPosition: backgroundPosition,
+                },
+                verticalAlign && {
+                    verticalAlign: verticalAlign
                 },
                 whiteSpace && {
                     whiteSpace: whiteSpace,

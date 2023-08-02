@@ -6,10 +6,12 @@ export interface TextProps {
     width?: string,
     height?: string,
     fontSize?: string,
+    fontWeight?: string,
     color?:string,
     padding?: string,
     margin?: string,
     textAlign?: Property.TextAlign,
     overflow?: string,
     textOverflow?: string,
+    verticalAlign?: string,
 }

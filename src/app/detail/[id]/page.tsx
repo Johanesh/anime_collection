@@ -1,11 +1,9 @@
 'use client'
 
-import Text from "@/components/user-interfaces/Text"
+import AnimeDataDetail from "@/pages/AnimeDetail"
 
 export default function AnimeDetail() {
   return (
-    <Text color="#000" textAlign="center">
-        anime detail
-    </Text>
+    <AnimeDataDetail />
   )
 }

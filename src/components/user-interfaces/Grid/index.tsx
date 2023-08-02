@@ -12,6 +12,8 @@ export default function Grid({
     padding,
     margin,
     overflow,
+    borderTop,
+    borderBottom,
     backgroundColor,
     color,
     cursor,
@@ -46,6 +48,12 @@ export default function Grid({
                 },
                 border && {
                     border: border,
+                },
+                borderTop && {
+                    borderTop: borderTop,
+                },
+                borderBottom && {
+                    borderBottom: borderBottom,
                 },
                 overflow && {
                     overflow: overflow,

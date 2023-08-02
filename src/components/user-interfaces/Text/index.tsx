@@ -9,6 +9,7 @@ export default function Text({
     width,
     height,
     fontSize,
+    fontWeight,
     color,
     padding,
     margin,
@@ -18,19 +19,20 @@ export default function Text({
             {
                 display: display || "inline-block",
                 fontSize: fontSize || "14px",
+                margin: margin || "auto",
                 '& > a': {
                     color: "inherit",
                     textDecoration: "none"
                 }
+            },
+            fontWeight && {
+                fontWeight: fontWeight,
             },
             width && {
                 width: width,
             },
             height && {
                 height: height,
-            },
-            margin && {
-                margin: margin,
             },
             padding && {
                 padding: padding,

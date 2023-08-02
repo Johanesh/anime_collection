@@ -5,7 +5,7 @@ import Box from '@/components/user-interfaces/Box';
 import FixedBox from '@/components/user-interfaces/FixedBox';
 import TextHeading from '@/components/user-interfaces/TextHeading';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faBookmark, faClose } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faHeart, faClose } from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link';
 import AbsoluteBox from '@/components/user-interfaces/AbsoluteBox';
 import Input from '@/components/user-interfaces/Input';
@@ -34,7 +34,7 @@ export default function Header() {
                 </TextHeading>
                 <AbsoluteBox top="50%" right="16px" transform="translateY(-50%)">
                     <Box display="inline-block" margin="0 16px 0 0" cursor="pointer">
-                        <FontAwesomeIcon icon={faBookmark} />
+                        <FontAwesomeIcon icon={faHeart} />
                     </Box>
                     <Box display="inline-block" cursor="pointer" onClick={clickSearchIcon}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
