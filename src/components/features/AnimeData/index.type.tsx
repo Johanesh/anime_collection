@@ -1,0 +1,3 @@
+interface AnimeDataProps {
+    isCanRemove?: boolean,
+}

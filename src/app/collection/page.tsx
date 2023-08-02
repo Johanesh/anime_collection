@@ -1,11 +1,9 @@
 'use client'
 
-import Text from "@/components/user-interfaces/Text";
+import CollectionList from "@/pages/CollectionList";
 
 export default function Collection() {
   return (
-    <Text color="#000" textAlign="center">
-        collection list
-    </Text>
+    <CollectionList />
   )
 }

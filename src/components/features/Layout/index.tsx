@@ -17,8 +17,10 @@ export default function Layout({
             }}
         >
             <Header/>
-            <Box padding="60px 0 16px" height="100vh">
-                {children}
+            <Box height="100vh">
+                <Box padding="60px 0 16px">
+                    {children}
+                </Box>
             </Box>
         </main>
     )
