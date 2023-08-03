@@ -1,0 +1,1 @@
+export const GraphBaseUrl = "https://graphql.anilist.co";

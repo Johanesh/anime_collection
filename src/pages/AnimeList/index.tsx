@@ -3,8 +3,14 @@ import Paginate from "@/components/features/Paginate";
 import Box from "@/components/user-interfaces/Box";
 import Grid from "@/components/user-interfaces/Grid";
 import TextHeading from "@/components/user-interfaces/TextHeading";
+import { GET_ANIMES } from "@/query/AnimeList";
+import { useQuery } from '@apollo/client';
 
 export default function AnimeList() {
+    const { loading, error, data } = useQuery(GET_ANIMES({page: 0}));
+
+    console.log(data);
+
     return (
         <Box width="100%" color="#000">
             <Box padding="0 16px 40px">
