@@ -11,8 +11,10 @@ import AbsoluteBox from '@/components/user-interfaces/AbsoluteBox';
 import Input from '@/components/user-interfaces/Input';
 import { useContext, useState } from 'react';
 import { SearchContext } from '@/context/Search';
+import { useRouter } from 'next/navigation';
 
 const Header = () => {
+    const router = useRouter()
     const {setSearchAnime} = useContext(SearchContext);
     const [isShowSearch, setIsShowSearch] = useState(false);
     const [search, setSearch] = useState("");
@@ -29,12 +31,16 @@ const Header = () => {
     const handleKeyUp = (keyCode: number) => {
         if (keyCode === 13) {
             setSearchAnime(search);
+            setIsShowSearch(false);
+            router.push("/");
         }
     };
 
     const handleClear = () => {
         setSearch("");
         setSearchAnime("");
+        setIsShowSearch(false);
+        router.push("/");
     }
 
     return (

@@ -32,15 +32,13 @@ export const GET_ANIMES = ({
                         userPreferred
                     }
                     averageScore
+                    trending
+                    popularity
                     bannerImage
                     coverImage {
                         extraLarge
                         large
                         medium
-                    }
-                    trailer {
-                        site
-                        thumbnail
                     }
                     episodes
                     streamingEpisodes {

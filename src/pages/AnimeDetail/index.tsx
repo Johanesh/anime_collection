@@ -6,157 +6,143 @@ import Box from "@/components/user-interfaces/Box";
 import Grid from "@/components/user-interfaces/Grid";
 import Text from "@/components/user-interfaces/Text";
 import TextHeading from "@/components/user-interfaces/TextHeading";
+import { GET_ANIMES } from "@/query/AnimeList";
+import { useQuery } from "@apollo/client";
 import { faHeartCirclePlus, faAward, faChartSimple, faPlayCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AnimeDataModel } from "./index.modal";
+import Link from "next/link";
 
-export default function AnimeDataDetail() {
+export default function AnimeDataDetail(props: AnimeDetailProps) {
+    const {
+        id
+    } = props;
+    const { loading, error, data } = useQuery(GET_ANIMES({id: Number(id)}));
+    const animeData: AnimeDataType = data ? AnimeDataModel(data) : AnimeDataModel();
+
     return (
         <Box width="100%" margin="0 0 24px" color="#000">
-            <Box backgroundImg="url('https://cdn.myanimelist.net/images/anime/1079/133529.jpg')" backgroundSize="cover" backgroundPosition="center" padding="50% 0 0">
+            <Box backgroundImg={`url('${animeData.coverImage}')`} backgroundSize="cover" backgroundPosition="center" padding="50% 0 0">
                 <AbsoluteBox top="0" right="0" bottom="0" left="0" backgroundColor="rgba(0,0,0,0.5)" />
                 <AbsoluteBox top="0" right="0" bottom="0" left="0" background="linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)" />
                 <AbsoluteBox bottom="-15%" left="50%" transform="translateX(-50%)">
                     <Box width="250px" padding="125% 0 0">
-                        <AbsoluteBox top="0" right="0" bottom="0" left="0" backgroundImg="url('https://cdn.myanimelist.net/images/anime/1079/133529.jpg')" backgroundSize="cover" />
+                        <AbsoluteBox top="0" right="0" bottom="0" left="0" backgroundImg={`url('${animeData.coverImage}')`} backgroundSize="cover" />
                     </Box>
                 </AbsoluteBox>
             </Box>
-            <Box padding="10% 0 0">
-                <AbsoluteBox top="10px" right="10px" cursor="pointer">
-                    <FontAwesomeIcon icon={faHeartCirclePlus} />
-                </AbsoluteBox>
-                <Box padding="0 8px">
-                    <Grid templateCol="70% 30%" gap="8px">
-                        <Box>
-                            <Box>
-                                <Text>
-                                    [Type] - [Year]
-                                </Text>
-                            </Box>
-                            <Box margin="8px 0">
-                                <Box display="inline-block" color="#fff" backgroundColor="green" padding="4px" verticalAlign="middle">
-                                    <Text fontWeight="bold">8.77</Text>
+            {
+                loading ? (
+                    <Box margin="15% 0" textAlign="center">
+                        Loading ...
+                    </Box>
+                ) : (
+                    <Box padding="10% 0 0">
+                        <AbsoluteBox top="10px" right="10px" cursor="pointer">
+                            <FontAwesomeIcon icon={faHeartCirclePlus} />
+                        </AbsoluteBox>
+                        <Box padding="0 8px">
+                            <Grid templateCol="70% 30%" gap="8px">
+                                <Box>
+                                    <Box>
+                                        <Text>
+                                            {animeData.format} - {animeData.seasonYear}
+                                        </Text>
+                                    </Box>
+                                    <Box margin="8px 0">
+                                        <Box
+                                            display="inline-block"
+                                            color={animeData.averageScore >= 75 ? "#fff" : "#000"}
+                                            backgroundColor={animeData.averageScore >= 75 ? "green" : "#eee"}
+                                            padding="4px 8px"
+                                            verticalAlign="middle"
+                                        >
+                                            <Text fontWeight="bold">{animeData.averageScore}</Text>
+                                        </Box>
+                                        <TextHeading display="inline-block" as="h2" margin="0 4px" verticalAlign="middle">
+                                            {animeData.title}
+                                        </TextHeading>
+                                    </Box>
+                                    <Box display="block">
+                                        <div dangerouslySetInnerHTML={{ __html: animeData.description }} />
+                                    </Box>
+                                    <Box margin="8px 0">
+                                        <Text display="block" fontWeight="bold" margin="0 0 8px">
+                                            Collection(s)
+                                        </Text>
+                                        <Text display="block">
+                                            [Collection Text Array]
+                                        </Text>
+                                    </Box>
                                 </Box>
-                                <TextHeading display="inline-block" as="h2" margin="0 4px" verticalAlign="middle">
-                                    Anime Title Here
-                                </TextHeading>
-                            </Box>
-                            <Text display="block">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium reiciendis commodi non obcaecati a. Incidunt cumque ducimus nihil esse sint repellendus sunt, natus, inventore debitis aliquam doloremque, illo quia sit? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium reiciendis commodi non obcaecati a. Incidunt cumque ducimus nihil esse sint repellendus sunt, natus, inventore debitis aliquam doloremque, illo quia sit?
-                            </Text>
-                            <Box margin="8px 0">
-                                <Text display="block" fontWeight="bold" margin="0 0 8px">
-                                    Collection(s)
-                                </Text>
-                                <Text display="block">
-                                    [Collection Text Array]
-                                </Text>
-                            </Box>
-                        </Box>
-                        <Box>
-                            <Box margin="0 0 16px">
-                                <Text display="block" fontWeight="bold" margin="0 0 8px">
-                                    Status
-                                </Text>
-                                <Text display="block">
-                                    [Status Text]
-                                </Text>
-                            </Box>
-                            <Box margin="0 0 16px">
-                                <Text display="block" fontWeight="bold" margin="0 0 8px">
-                                    Studio
-                                </Text>
-                                <Text display="block">
-                                    [Studio Text]
-                                </Text>
-                            </Box>
-                            <Box margin="0 0 16px">
-                                <Text display="block" fontWeight="bold" margin="0 0 8px">
-                                    Genre(s)
-                                </Text>
-                                <Text display="block">
-                                    [Genre Text Array]
-                                </Text>
-                            </Box>
-                            <Box>
-                                <Box display="inline-block" margin="0 8px 0 0">
-                                    <FontAwesomeIcon icon={faAward} /> 123123
+                                <Box>
+                                    <Box margin="0 0 16px">
+                                        <Text display="block" fontWeight="bold" margin="0 0 8px">
+                                            Status
+                                        </Text>
+                                        <Text display="block">
+                                            {animeData.status}
+                                        </Text>
+                                    </Box>
+                                    <Box margin="0 0 16px">
+                                        <Text display="block" fontWeight="bold" margin="0 0 8px">
+                                            Studio
+                                        </Text>
+                                        <Text display="block">
+                                            {animeData.studios.join(", ")}
+                                        </Text>
+                                    </Box>
+                                    <Box margin="0 0 16px">
+                                        <Text display="block" fontWeight="bold" margin="0 0 8px">
+                                            Genre(s)
+                                        </Text>
+                                        <Text display="block">
+                                            {animeData.genres.join(", ")}
+                                        </Text>
+                                    </Box>
+                                    <Box>
+                                        <Box display="inline-block" margin="0 8px 0 0">
+                                            <Box display="inline-block" color="orange" margin="0 4px 0 0">
+                                                <FontAwesomeIcon icon={faAward} />
+                                            </Box>
+                                            {animeData.trending}
+                                        </Box>
+                                        <Box display="inline-block">
+                                            <Box display="inline-block" color="lightblue" margin="0 4px 0 0">
+                                                <FontAwesomeIcon icon={faChartSimple} />
+                                            </Box>
+                                            {animeData.popularity}
+                                        </Box>
+                                    </Box>
                                 </Box>
-                                <Box display="inline-block">
-                                    <FontAwesomeIcon icon={faChartSimple} /> 123123
+                            </Grid>
+                            <Box margin="16px 0">
+                                <Box padding="0 0 16px" borderBottom="1px solid #000">
+                                    <TextHeading as="h3">
+                                        Episodes ({animeData.episodes})
+                                    </TextHeading>
                                 </Box>
-                            </Box>
-                        </Box>
-                    </Grid>
-                    <Box margin="16px 0">
-                        <Box margin="0 0 8px">
-                            <TextHeading as="h3">
-                                Trailer
-                            </TextHeading>
-                        </Box>
-                        <Box>
-                            <Box display="inline-block">
-                                <AbsoluteBox top="50%" left="50%" transform="translate(-50%, -50%)" color="maroon">
-                                    <FontAwesomeIcon 
-                                        icon={faPlayCircle}
-                                        css={{
-                                            width: '50px',
-                                            height: '50px'
-                                        }}
-                                    />
-                                </AbsoluteBox>
-                                <img src={"https://cdn.myanimelist.net/images/anime/1079/133529.jpg"} alt="trailer" />
+                                {
+                                    animeData.streamingEpisodes.map((item, index) => (
+                                        <Grid key={index} padding="8px 0" borderBottom="1px solid #000" templateCol="200px auto">
+                                            <Box width="100%" padding="50% 0 0">
+                                                <AbsoluteBox top="0" right="0" bottom="0" left="0" backgroundImg={`url('${item.thumbnail}')`} backgroundSize="contain" backgroundPosition="center" backgroundRepeat="no-repeat" />
+                                            </Box>
+                                            <Grid align="center" justify="left" padding="0 8px">
+                                                <Link href={item.url} target="_blank">
+                                                    <TextHeading as="h3">
+                                                            {item.title}
+                                                    </TextHeading>
+                                                </Link>
+                                            </Grid>
+                                        </Grid>
+                                    ))
+                                }
                             </Box>
                         </Box>
                     </Box>
-                    <Box margin="16px 0">
-                        <Box padding="0 0 16px" borderBottom="1px solid #000">
-                            <TextHeading as="h3">
-                                Episodes (00)
-                            </TextHeading>
-                        </Box>
-                        <Box padding="8px 0" borderBottom="1px solid #000">
-                            <TextHeading as="h3" margin="0 0 8px">
-                                [Episode Title]
-                            </TextHeading>
-                            <Text>
-                                24 October 2023
-                            </Text>
-                            <AbsoluteBox top="50%" transform="translateY(-50%)" right="0">
-                                <Box display="inline-block" color="#fff" backgroundColor="green" padding="4px" verticalAlign="middle">
-                                    <Text fontWeight="bold">8.77</Text>
-                                </Box>
-                            </AbsoluteBox>
-                        </Box>
-                        <Box padding="8px 0" borderBottom="1px solid #000">
-                            <TextHeading as="h3" margin="0 0 8px">
-                                [Episode Title]
-                            </TextHeading>
-                            <Text>
-                                24 October 2023
-                            </Text>
-                            <AbsoluteBox top="50%" transform="translateY(-50%)" right="0">
-                                <Box display="inline-block" color="#fff" backgroundColor="green" padding="4px" verticalAlign="middle">
-                                    <Text fontWeight="bold">8.77</Text>
-                                </Box>
-                            </AbsoluteBox>
-                        </Box>
-                        <Box padding="8px 0" borderBottom="1px solid #000">
-                            <TextHeading as="h3" margin="0 0 8px">
-                                [Episode Title]
-                            </TextHeading>
-                            <Text>
-                                24 October 2023
-                            </Text>
-                            <AbsoluteBox top="50%" transform="translateY(-50%)" right="0">
-                                <Box display="inline-block" color="#fff" backgroundColor="green" padding="4px" verticalAlign="middle">
-                                    <Text fontWeight="bold">8.77</Text>
-                                </Box>
-                            </AbsoluteBox>
-                        </Box>
-                    </Box>
-                </Box>
-            </Box>
+                )
+            }
         </Box>
     )
 };

@@ -19,7 +19,7 @@ export default function AnimeData({
                 <Box width="100%" backgroundColor="#eaeaea" padding="125% 0 0" cursor={!isEmpty ? "pointer" : "default"}>
                     {
                         !isEmpty ? (
-                            <Link href={`/detail/${data?.id}`} target="_blank">
+                            <Link href={`/detail/${data?.id}`}>
                                 <AbsoluteBox backgroundImg={`url(${data?.bannerImage})`} backgroundSize="cover" top="0" right="0" bottom="0" left="0" />
                             </Link>
                         ) : (
@@ -45,7 +45,7 @@ export default function AnimeData({
                 {
                     !isEmpty ? (
                         <TextHeading as="h3" height="40px" overflow="hidden" textOverflow="ellipsis" margin="8px 0 16px">
-                            <Link href={`/detail/${data?.id}`} target="_blank">
+                            <Link href={`/detail/${data?.id}`}>
                                 {data?.title}
                             </Link>
                         </TextHeading>
