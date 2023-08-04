@@ -10,4 +10,5 @@ interface InputProps {
     value?: string | number,
     placeholder?: string,
     onChange?: (value: string, name?: string) => void,
+    onKeyUp?: (key: number) => void;
 }

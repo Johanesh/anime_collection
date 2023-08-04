@@ -13,6 +13,7 @@ export default function Input({
     value,
     placeholder,
     onChange,
+    onKeyUp,
 }: InputProps) {
     return (
         <input
@@ -20,6 +21,7 @@ export default function Input({
             value={value}
             placeholder={placeholder}
             onChange={(e) => onChange ? onChange(e.target.value, e.target.name) : () => {}}
+            onKeyUp={(e) => onKeyUp ? onKeyUp(e.keyCode) : () => {}}
             css={[
                 {
                     display: display || "block",

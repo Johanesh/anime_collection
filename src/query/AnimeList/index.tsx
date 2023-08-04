@@ -16,12 +16,38 @@ export const GET_ANIMES = ({
                     hasNextPage
                     perPage
                 }
-                media (type: ANIME ${search ? `,search: ${search}` : ""} ${id ? `,id: ${id}` : ""}) {
+                media (type: ANIME ${search ? `,search: "${search}"` : ""} ${id ? `,id: ${id}` : ""}) {
                     id
-                    title {
-                        english
+                    format
+                    status
+                    description
+                    seasonYear
+                    genres
+                    studios {
+                        nodes {
+                            name
+                        }
                     }
+                    title {
+                        userPreferred
+                    }
+                    averageScore
                     bannerImage
+                    coverImage {
+                        extraLarge
+                        large
+                        medium
+                    }
+                    trailer {
+                        site
+                        thumbnail
+                    }
+                    episodes
+                    streamingEpisodes {
+                        title
+                        thumbnail
+                        url
+                    }
                 }
             }
         }
